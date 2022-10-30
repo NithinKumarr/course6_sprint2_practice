@@ -1,0 +1,24 @@
+create database CarSalesData;
+use CarSalesData;
+create table SalesPerson2(SalesId varchar(10) primary key,FirstName varchar(20),City varchar(15),CommisionRate varchar(10));
+desc salesperson2;
+insert into salesperson2 values('1001','john','london','12');
+insert into salesperson2 values('1002','bob','san jose','13');
+insert into salesperson2 values('1004','judith','london','11');
+insert into salesperson2 values('1007','Robin','barcelona','15');
+insert into salesperson2 values('1003','Harry','New York','10');
+insert into salesperson2 values('1005','James','london','26');
+insert into salesperson2 values('1008','Charles','Florida','0');
+select*from salesperson2;
+select*from salesperson2 where FirstName='Robin' and City='Barcelona';
+select city,commisionRate from salesperson2 where FirstName='john';
+select*from salesperson2 where CommisionRate>'15';
+select*from salesperson2 where CommisionRate between '10' and '20';
+select FirstName,City from salesperson2 where CommisionRate>'25';
+select FirstName,City from salesperson2 where CommisionRate='0';
+select*from salesperson2 where FirstName like 'J%';
+select*from salesperson2 where City in ('London','New York','San Jose');
+select avg(CommisionRate) from salesperson2;
+select FirstName from salesperson2 where CommisionRate in('10','11','12','13');
+select FirstName,City from salesperson2 where CommisionRate in(select max(CommisionRate) from salesperson2);
+
